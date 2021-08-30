@@ -3,7 +3,7 @@ from notifier import Notifier
 import typer, arrow, dotenv
 from plan import Plan
 
-CONFIG = dotenv.dotenv_values('.env')
+CONFIG = dotenv.dotenv_values('/home/muiz/code/Python/Butler/.env')
 
 DATABASE: str = CONFIG['database']
 USERNAME: str = CONFIG['username']
@@ -13,7 +13,7 @@ db = Database(DATABASE)
 app = typer.Typer()
 
 @app.command()
-def add(name: str, due_date: str):
+def add(name: str, due_date: str = arrow.utcnow()):
     """Add a plan into the database."""
     try:
         plan = Plan(name, arrow.get(due_date))
