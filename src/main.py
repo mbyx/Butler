@@ -3,7 +3,7 @@ from notifier import Notifier
 import typer, arrow, dotenv
 from plan import Plan
 
-CONFIG = dotenv.dotenv_values('/home/muiz/code/Python/Butler/.env')
+CONFIG = dotenv.dotenv_values('.env')
 
 DATABASE: str = CONFIG['database']
 USERNAME: str = CONFIG['username']
